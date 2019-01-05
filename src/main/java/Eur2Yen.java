@@ -2,13 +2,26 @@ public class Eur2Yen extends WR {
 
 
     private WR nextWR;
-    private final double umrechnungsfaktor= 122.43;
+    private String variante;
 
-    public Eur2Yen(String name, double betrag)
+    //private final double umrechnungsfaktor= 122.43;
+
+    public Eur2Yen(String variante)
     {
-        this.calcName = name;
-        this.betrag = betrag*umrechnungsfaktor;
+        this.calcName = variante;
+        //this.betrag = betrag*umrechnungsfaktor;
+        this.setUp();
     }
+
+    private void setUp(){
+        this.umrechnungsfaktor = 122.43;
+        this.variante =  "Eur2Yen";
+    }
+
+
+
+
+
 
 
 }
