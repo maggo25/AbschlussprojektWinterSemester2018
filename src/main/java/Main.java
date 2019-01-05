@@ -2,10 +2,10 @@ public class Main {
 
 
 
-    private static WR waehrungsRechner() {
+    private static WR getChainOfCalculators() {
 
-        WR Eur2Yen = new Eur2Yen("Eur2Yen", 50);
-        WR Eur2Dol = new Eur2Dol("Eur2Dol", 300);
+        WR Eur2Yen = new Eur2Yen("Eur2Yen", 300);
+        WR Eur2Dol = new Eur2Dol("Eur2Dol", 500);
 
         Eur2Yen.setNextWR(Eur2Dol);
 
@@ -14,8 +14,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        WR wr = waehrungsRechner();
+        WR wr = getChainOfCalculators();
 
-        wr.umrechnen("Eur2Yen", 50);
+        wr.umrechnen("Eur2Yen", 10);
     }
 }

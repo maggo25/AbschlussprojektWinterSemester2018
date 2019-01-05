@@ -1,14 +1,8 @@
 public abstract class WR implements IUmrechnen {
 
-    protected String variante;
     protected String calcName;
     protected double betrag;
-
-    public static String EUR2DOL = "Eur2Dol";
-    public static String EUR2YEN = "Eur2Yen";
-
-
-
+    protected double umzurechnenderbetrag;
     private WR nextWR;
 
     public WR getNextWR() {
@@ -19,8 +13,6 @@ public abstract class WR implements IUmrechnen {
         this.nextWR = nextWR;
     }
 
-
-
     public String getCalcName() {
         return this.calcName;
     }
@@ -29,26 +21,24 @@ public abstract class WR implements IUmrechnen {
         this.calcName = calcName;
     }
 
-
     public double umrechnen(String variante, double betrag) {
-        double newbetrag=0;
-        System.out.println(this.calcName);
+        this.umzurechnenderbetrag = betrag;
         if (this.calcName.equals(variante)) {
-            System.out.println("Betrag: "+this.betrag);
-            //newbetrag = umrechnen(variante, betrag);
+            write(this.betrag);
         } else {
             if (this.nextWR != null) {
-                System.out.println("Weiterleiten zum naechsten Rechner: " + nextWR.getCalcName());
-                System.out.println("Betrag: "+this.betrag);
-                //newbetrag = nextWR.umrechnen(variante, betrag);
+                nextWR.umrechnen(variante, betrag);
             } else {
                 System.out.println("Diese Waehrung kann nicht umgerechnet werden!");
-                //newbetrag = 0;
             }
-
         }
-        return newbetrag;
+        return this.betrag;
     }
 
+
+    public void write(double betrag) {
+        String output = getCalcName() + ": " + betrag;
+        System.out.println(output);
+    }
 
 }
