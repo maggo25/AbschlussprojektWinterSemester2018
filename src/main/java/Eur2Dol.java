@@ -1,19 +1,6 @@
 public class Eur2Dol extends WR {
 
-    /*
 
-    private WR nextWR;
-    private final double umrechnungsfaktor= 1.14;
-
-    public Eur2Dol(String variante, double betrag)
-    {
-        this.calcName = variante;
-        this.betrag = betrag*umrechnungsfaktor;
-    }
-
-    */
-
-    private WR nextWR;
     private String variante;
 
     //private final double umrechnungsfaktor= 122.43;

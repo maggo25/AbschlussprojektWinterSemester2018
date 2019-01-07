@@ -1,7 +1,7 @@
 public abstract class WR implements IUmrechnen {
 
     protected String calcName;
-    protected double betrag;
+    //protected double betrag;
     private WR nextWR;
     protected double umrechnungsfaktor;
 
@@ -26,12 +26,12 @@ public abstract class WR implements IUmrechnen {
     /**
      * Diese Methode rechnet die Beträge um. Falls es die Variante nicht gibt, wird eine Meldung ausgegeben und der returnwert beträgt 0.
      * @param variante Umrechnungsvariante
-     * @param betrag Den umzurechnenden Betrag
+     * @param betrag umzurechnender Betrag
      * @return die umgerechnete Währung oder 0
      */
     public double umrechnen(String variante, double betrag) {
-        double result = 0;
         //Template Hook wird hier angewendet zur vermeidung der Codeduplikate
+        double result = 0;
         if (this.calcName.equals(variante)) {
 
             result = betrag * this.umrechnungsfaktor;

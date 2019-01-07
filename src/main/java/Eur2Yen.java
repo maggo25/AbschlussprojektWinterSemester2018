@@ -1,7 +1,6 @@
 public class Eur2Yen extends WR {
 
 
-    private WR nextWR;
     private String variante;
 
     //private final double umrechnungsfaktor= 122.43;
