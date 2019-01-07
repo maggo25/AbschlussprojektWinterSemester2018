@@ -1,23 +1,18 @@
 public class Main {
 
+    public static void main(String[] args) {
 
-
-    private static WR getChainOfCalculators() {
-
-        WR Eur2Yen = new Eur2Yen("Eur2Yen");
-        WR Eur2Dol = new Eur2Dol("Eur2Dol");
+        WR Eur2Yen = new Eur2Yen();
+        WR Eur2Dol = new Eur2Dol();
 
         Eur2Yen.setNextWR(Eur2Dol);
 
-        return Eur2Yen;
-    }
-
-    public static void main(String[] args) {
-
-        WR wr = getChainOfCalculators();
+        WR wr = Eur2Yen;
+        wr = new DecorateUmrecnungsgebuehr(wr);
+        wr = new DecorateLogging(wr);
 
 
-        System.out.println(wr.umrechnen("Eur2Dol" ,1));
+        System.out.println(wr.umrechnen("Eur2Yen" ,100));
 
     }
 }
