@@ -15,10 +15,13 @@ public class Main {
 
         System.out.println(wr.umrechnen("Eur2Dol" ,100));
 
-        DAO dao = new DAO();
+        DAOImplementation dao = new DAOImplementation();
         LoggerEntry ln = new LoggerEntry();
 
-        dao.save(ln);
+        ln.setBetrag(100);
+        ln.setVariante("Test");
+
+        dao.createLogEntry(ln);
 
     }
 }
