@@ -12,7 +12,7 @@ public class Eur2Yen extends WR {
     {
         this.calcName = "Eur2Yen";
         this.umrechnungsfaktor = 122.43;
-        this.setWR(wr);
+        this.setNextWR(wr);
     }
 
 

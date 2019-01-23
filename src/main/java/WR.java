@@ -5,11 +5,11 @@ public abstract class WR implements IUmrechnen {
     private WR WR;
     protected double umrechnungsfaktor;
 
-    public WR getWR() {
+    public WR getNextWR() {
         return WR;
     }
 
-    public void setWR(WR wr){
+    public void setNextWR(WR wr){
         this.WR = wr;
     }
 
@@ -30,6 +30,7 @@ public abstract class WR implements IUmrechnen {
      * @return die umgerechnete Währung oder 0
      */
     public double umrechnen(String variante, double betrag) {
+
         //Template Hook wird hier angewendet zur vermeidung der Codeduplikate
         double result = 0;
         if (this.calcName.equals(variante)) {
@@ -70,9 +71,9 @@ public abstract class WR implements IUmrechnen {
     {
         WR waerungsrechner = this;
         while (waerungsrechner.WRSuchen()){
-            waerungsrechner = waerungsrechner.getWR();
+            waerungsrechner = waerungsrechner.getNextWR();
         }
-        waerungsrechner.setWR(wr);
+        waerungsrechner.setNextWR(wr);
     }
 
     public void deleteWR()
@@ -83,9 +84,9 @@ public abstract class WR implements IUmrechnen {
 
         while (nextwaehrungsrechner.WRSuchen()){
             waehrungsrechner = nextwaehrungsrechner;
-            nextwaehrungsrechner = nextwaehrungsrechner.getWR();
+            nextwaehrungsrechner = nextwaehrungsrechner.getNextWR();
         }
-        waehrungsrechner.setWR(null);
+        waehrungsrechner.setNextWR(null);
     }
 
 }

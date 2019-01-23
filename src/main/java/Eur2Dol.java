@@ -14,8 +14,9 @@ public class Eur2Dol extends WR {
     {
         this.calcName = "Eur2Dol";
         this.umrechnungsfaktor = 1.14;
-        this.setWR(wr);
+        this.setNextWR(wr);
     }
+
 
 
 
