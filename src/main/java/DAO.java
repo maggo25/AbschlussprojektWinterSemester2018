@@ -1,27 +1,17 @@
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import java.util.ArrayList;
+import java.util.List;
 
-public class DAO {
+public interface DAO {
 
-    EntityManagerFactory emf;
-    EntityManager em;
+    public LoggerEntry getLogEntry(int id);
 
-    public DAO()
+    public List<LoggerEntry> getAllLogEvents();
 
-    {
+    public void createLogEntry(LoggerEntry loggerEntry);
 
-        emf = Persistence.createEntityManagerFactory("abschlussProjekt");
-        em = emf.createEntityManager();
-    }
+    public void updateLogEntry(LoggerEntry loggerEntry);
 
-    public void save(LoggerEntry le){
-        em.getTransaction().begin();
-        em.persist(le);
-        em.getTransaction().commit();
-
-    }
-
+    public void deleteLogEntry(int id);
 
 
 }

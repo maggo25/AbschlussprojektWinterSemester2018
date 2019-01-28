@@ -17,4 +17,6 @@ public class DecorateLogging extends Decorator {
         return result;
     }
 
+
+
 }
