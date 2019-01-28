@@ -38,5 +38,13 @@ public class Main {
             System.out.println(l.getId() +" | Betrag: "+l.getBetrag() +" | Datum: " +l.getDateTime());
         }
 
+        //WR Eur2Yennew = new Eur2Yen();
+        //WR wrnew = Eur2Yen;
+        ISammelrechnung sammelrechnung = new AdapterSammelrechnung(Eur2Yen);
+        double[] betraege = {10, 100, 1000};
+        double erg = sammelrechnung.sammelumrechnen(betraege, "Eur2Dol");
+        System.out.println("Sammelrechnung: "+erg);
+
+
     }
 }

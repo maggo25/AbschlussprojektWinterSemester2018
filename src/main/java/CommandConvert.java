@@ -19,7 +19,7 @@ public class CommandConvert implements ICommand {
 
 
     @Override
-    public void ausfuehren() {
+    public void redo() {
         this.erg = this.wr.umrechnen(this.variante, this.betrag);
     }
 
@@ -27,6 +27,5 @@ public class CommandConvert implements ICommand {
     public void undo() {
         this.erg = this.betrag;
     }
-
 
 }
