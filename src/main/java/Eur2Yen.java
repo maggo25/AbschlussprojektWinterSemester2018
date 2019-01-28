@@ -15,8 +15,9 @@ public class Eur2Yen extends WR {
         this.setNextWR(wr);
     }
 
-
-
-
+    @Override
+    public double getUmrechnungsfaktor() {
+        return this.umrechnungsfaktor;
+    }
 }
 

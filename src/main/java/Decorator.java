@@ -10,6 +10,11 @@ public abstract class Decorator extends WR {
         return waerungsrechner.umrechnen(variante, betrag);
     }
 
+    @Override
+    public double getUmrechnungsfaktor() {
+        return this.waerungsrechner.getUmrechnungsfaktor();
+    }
+
 
 
 

@@ -28,4 +28,10 @@ public class CommandConvert implements ICommand {
         this.erg = this.betrag;
     }
 
+
+    public String execute() {
+        wr.umrechnen(this.variante, this.betrag);
+        return "Log: "+betrag +" "+variante;
+    }
+
 }

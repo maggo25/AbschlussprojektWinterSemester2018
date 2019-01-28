@@ -14,11 +14,8 @@ public class LoggerEntry {
     @Id
     private int id;
 
-    @Column(nullable=false)
-    private double betrag;
-
     @Column()
-    private String variante;
+    private String logentry;
 
     @Column
     private LocalDateTime dateTime;
@@ -28,9 +25,8 @@ public class LoggerEntry {
         this.dateTime = LocalDateTime.now();
     }
 
-    public LoggerEntry(double betrag, String variante) {
-        this.betrag = betrag;
-        this.variante = variante;
+    public LoggerEntry(String logentry) {
+        this.logentry = logentry;
     }
 
     public int getId() {
@@ -41,20 +37,12 @@ public class LoggerEntry {
         this.id = id;
     }
 
-    public double getBetrag() {
-        return betrag;
+    public String getLogentry() {
+        return logentry;
     }
 
-    public void setBetrag(double betrag) {
-        this.betrag = betrag;
-    }
-
-    public String getVariante() {
-        return variante;
-    }
-
-    public void setVariante(String variante) {
-        this.variante = variante;
+    public void setLogentry(String logentry) {
+        this.logentry = logentry;
     }
 
     public void setDateTime(LocalDateTime dt)

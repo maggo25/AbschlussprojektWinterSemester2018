@@ -17,13 +17,9 @@ public class Eur2Dol extends WR {
         this.setNextWR(wr);
     }
 
-
-
-
-
-
-
-
-
+    @Override
+    public double getUmrechnungsfaktor() {
+        return this.umrechnungsfaktor;
+    }
 
 }

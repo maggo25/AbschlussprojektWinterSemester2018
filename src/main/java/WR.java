@@ -3,14 +3,25 @@ public abstract class WR implements IUmrechnen {
     protected String calcName;
     //protected double betrag;
     private WR WR;
+
+    private double betrag;
+
     protected double umrechnungsfaktor;
 
     public WR getNextWR() {
         return WR;
     }
 
-    public void setNextWR(WR wr){
+    public void setNextWR(WR wr) {
         this.WR = wr;
+    }
+
+    public double getBetrag() {
+        return betrag;
+    }
+
+    public void setBetrag(double betrag) {
+        this.betrag = betrag;
     }
 
     public String getCalcName() {
@@ -22,20 +33,21 @@ public abstract class WR implements IUmrechnen {
     }
 
 
-
     /**
      * Diese Methode rechnet die Beträge um. Falls es die Variante nicht gibt, wird eine Meldung ausgegeben und der returnwert beträgt 0.
+     *
      * @param variante Umrechnungsvariante
-     * @param betrag umzurechnender Betrag
+     * @param betrag   umzurechnender Betrag
      * @return die umgerechnete Währung oder 0
      */
     public double umrechnen(String variante, double betrag) {
+        this.betrag = betrag;
 
         //Template Hook wird hier angewendet zur vermeidung der Codeduplikate
         double result = 0;
         if (this.calcName.equals(variante)) {
             //diese kleine Formel könnte man schöhnheitshalber auch in eine eigene Methode verlagern
-            result = this.calc(betrag, this.umrechnungsfaktor);
+            result = betrag * this.getUmrechnungsfaktor();
 
         } else {
             if (this.WR != null) {
@@ -48,9 +60,8 @@ public abstract class WR implements IUmrechnen {
     }
 
 
-    private double calc (double betrag, double faktor) {
-        return betrag*faktor;
-    }
+    public abstract double getUmrechnungsfaktor();
+
 
 
     private boolean WRSuchen()
